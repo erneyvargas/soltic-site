@@ -87,11 +87,21 @@ O si ya tienes tu proyecto React, copia/symlinkea su carpeta `dist/` (o `build/`
 
 ### 3. Desplegar infra
 
+Todos los archivos Terraform viven en `infra/`. Usa `-chdir` o entra en la carpeta:
+
 ```bash
+cd infra
 cp terraform.tfvars.example terraform.tfvars
 # editar bucket_name — debe ser único globalmente en AWS
 terraform init
 terraform apply
+cd ..
+```
+
+O sin cambiar de directorio:
+```bash
+terraform -chdir=infra init
+terraform -chdir=infra apply
 ```
 
 **CloudFront tarda 3-5 min en propagarse la primera vez.** Terraform espera a que la distribución quede `Deployed`.
@@ -100,23 +110,23 @@ terraform apply
 
 ```bash
 # desde ./app/dist/ (vite) o ./build/ (CRA)
-aws s3 sync ./app/dist/ s3://$(terraform output -raw bucket_name)/ --delete
+aws s3 sync ./app/dist/ s3://$(terraform -chdir=infra output -raw bucket_name)/ --delete
 
 # invalidar caché CloudFront para ver cambios YA
 aws cloudfront create-invalidation \
-  --distribution-id $(terraform output -raw distribution_id) \
+  --distribution-id $(terraform -chdir=infra output -raw distribution_id) \
   --paths '/*'
 ```
 
 O usa el output que combina ambos:
 ```bash
-eval "$(terraform output -raw deploy_cmd)"
+eval "$(terraform -chdir=infra output -raw deploy_cmd)"
 ```
 
 ### 5. Abrir
 
 ```bash
-xdg-open "$(terraform output -raw url)"
+xdg-open "$(terraform -chdir=infra output -raw url)"
 # o
 curl -I "$(terraform output -raw url)"
 ```
@@ -191,16 +201,28 @@ resource "aws_route53_record" "site" {
 
 Para un sitio personal en AWS: **S3 + CloudFront gana** en precio, control y fiabilidad.
 
+## Estructura del proyecto
+
+```
+react-static-site/
+├── app/                 React + Vite (código del sitio)
+├── infra/               Terraform (S3, CloudFront, OIDC, IAM, assets bucket)
+├── .github/workflows/   CI/CD de GitHub Actions
+└── README.md
+```
+
 ## Destruir
 
 ```bash
-# primero vaciar el bucket (Terraform no lo borra si tiene objetos)
-aws s3 rm s3://$(terraform output -raw bucket_name) --recursive
+# primero vaciar los buckets (Terraform no los borra si tienen objetos)
+aws s3 rm s3://$(terraform -chdir=infra output -raw bucket_name) --recursive
+aws s3 rm s3://$(terraform -chdir=infra output -raw assets_bucket_name) --recursive
 
 # si versionado activo, borrar versiones también:
-aws s3api delete-objects --bucket $(terraform output -raw bucket_name) \
-  --delete "$(aws s3api list-object-versions --bucket $(terraform output -raw bucket_name) \
+BUCKET=$(terraform -chdir=infra output -raw bucket_name)
+aws s3api delete-objects --bucket $BUCKET \
+  --delete "$(aws s3api list-object-versions --bucket $BUCKET \
   --query='{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
 
-terraform destroy
+terraform -chdir=infra destroy
 ```
