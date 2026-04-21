@@ -1,0 +1,22 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+.terraform.lock.hcl
+
+# Node / Vite
+app/node_modules/
+app/dist/
+app/.vite/
+app/npm-debug.log*
+app/yarn-debug.log*
+app/yarn-error.log*
+
+# Editor / SO
+.DS_Store
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,4 @@
+region      = "us-east-1"
+project     = "personal-site"
+bucket_name = "erney-personal-site-2026"  # DEBE ser único en TODO AWS, cambiar
+price_class = "PriceClass_100"

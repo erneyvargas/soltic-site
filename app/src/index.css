@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: rgba(233, 185, 73, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222226;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333338;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-line/80 bg-surface/60 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-mute backdrop-blur;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-black transition hover:bg-gold-soft hover:shadow-glow;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-line/80 bg-surface/40 px-5 py-3 text-sm font-semibold text-ink backdrop-blur transition hover:border-gold/60 hover:text-gold;
+  }
+
+  .card {
+    @apply relative rounded-2xl border border-line/60 bg-surface/60 p-6 shadow-card backdrop-blur;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-line to-transparent;
+  }
+
+  .display {
+    @apply font-display tracking-tight;
+  }
+
+  .gold-text {
+    background: linear-gradient(180deg, #f5d182, #e9b949 70%, #b8902f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
