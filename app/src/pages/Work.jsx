@@ -29,7 +29,7 @@ const cases = [
     title: "Plataforma de streaming en vivo para 500k usuarios concurrentes",
     tags: ["HLS", "CloudFront", "Kubernetes"],
     kpi: "99.99% uptime en finales",
-    img: "https://images.unsplash.com/photo-1574717024453-e599f3984a99?w=900&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&auto=format&fit=crop&q=80",
   },
   {
     client: "EdTech · Educación corporativa",
