@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Calendar, X, Sparkles } from "lucide-react";
 
-const WHATSAPP = "https://wa.me/573000000000?text=Hola%20Soltic%2C%20quiero%20cotizar";
+const WHATSAPP = "https://wa.me/573006782549?text=Hola%20Soltic%2C%20quiero%20cotizar";
 const CALENDLY = "https://calendly.com/soltic/discovery";
 
 export default function FloatingCTA() {

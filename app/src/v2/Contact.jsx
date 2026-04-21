@@ -47,7 +47,7 @@ export default function Contact() {
           <dl className="mt-12 space-y-5">
             {[
               { I: Mail, k: "Correo", v: "hola@soltic.com.co", href: "mailto:hola@soltic.com.co" },
-              { I: Phone, k: "Teléfono", v: "+57 300 000 0000", href: "tel:+5730000000000" },
+              { I: Phone, k: "Teléfono", v: "+57 300 678 2549", href: "tel:+573006782549" },
               { I: MapPin, k: "Oficina", v: "Bogotá · Colombia" },
             ].map(({ I, k, v, href }) => (
               <div key={k} className="flex items-center gap-4">

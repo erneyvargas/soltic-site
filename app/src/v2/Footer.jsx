@@ -91,8 +91,8 @@ export default function Footer() {
               <a href="mailto:hola@soltic.com.co" className="block hover:text-white">
                 hola@soltic.com.co
               </a>
-              <a href="tel:+5730000000000" className="block hover:text-white">
-                +57 300 000 0000
+              <a href="tel:+573006782549" className="block hover:text-white">
+                +57 300 678 2549
               </a>
               <p>Bogotá, Colombia</p>
             </address>

@@ -56,7 +56,7 @@ export const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     email: "hola@soltic.com.co",
-    telephone: "+57-300-000-0000",
+    telephone: "+57-300-678-2549",
     contactType: "sales",
     areaServed: ["CO", "MX", "US", "ES"],
   },
