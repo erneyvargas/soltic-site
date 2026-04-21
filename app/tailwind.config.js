@@ -18,8 +18,8 @@ export default {
         accent: "#7CC4FF",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ['"Instrument Serif"', "serif"],
+        sans: ['"Bricolage Grotesque"', "system-ui", "sans-serif"],
+        display: ['"Fraunces"', "serif"],
       },
       backgroundImage: {
         "mesh-hero":

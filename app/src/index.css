@@ -13,7 +13,8 @@
 
   body {
     @apply bg-bg text-ink font-sans antialiased;
-    font-feature-settings: "ss01", "cv11";
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
   }
 
   ::selection {
