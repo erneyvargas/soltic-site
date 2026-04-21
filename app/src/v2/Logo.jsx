@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function Logo() {
   return (
-    <a href="#top" className="inline-flex items-center gap-2.5 group">
+    <Link to="/" className="inline-flex items-center gap-2.5 group">
       <svg width="32" height="32" viewBox="0 0 40 40" className="transition group-hover:scale-110">
         <defs>
           <linearGradient id="soltic-logo-g" x1="0" y1="0" x2="1" y2="1">
@@ -15,6 +17,6 @@ export default function Logo() {
       <span className="font-poppins text-[18px] font-bold text-navy-900 dark:text-white">
         Soltic
       </span>
-    </a>
+    </Link>
   );
 }

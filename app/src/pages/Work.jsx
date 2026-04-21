@@ -1,0 +1,103 @@
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import PageHero from "./_PageHero";
+
+const cases = [
+  {
+    client: "Fintech · Banca digital",
+    title: "Core bancario moderno en 18 meses",
+    tags: ["Microservicios", "AWS", "Event-driven"],
+    kpi: "3M+ transacciones/día",
+    gradient: "from-violet/30 to-teal/10",
+  },
+  {
+    client: "Healthtech · Telemedicina",
+    title: "Plataforma HIPAA-ready con 1M+ pacientes",
+    tags: ["React Native", "GCP", "WebRTC"],
+    kpi: "45% reducción tiempo de consulta",
+    gradient: "from-teal/30 to-violet/10",
+  },
+  {
+    client: "Marketplace · Logística",
+    title: "MVP a Serie A en 10 semanas",
+    tags: ["Next.js", "PostgreSQL", "Stripe"],
+    kpi: "Cierre de Serie A: USD 8M",
+    gradient: "from-navy-300/30 to-teal/10",
+  },
+  {
+    client: "OTT · Streaming deportivo",
+    title: "Plataforma de streaming en vivo para 500k usuarios concurrentes",
+    tags: ["HLS", "CloudFront", "Kubernetes"],
+    kpi: "99.99% uptime en finales",
+    gradient: "from-violet/20 to-navy-300/20",
+  },
+  {
+    client: "EdTech · Educación corporativa",
+    title: "LMS con IA generativa para evaluación",
+    tags: ["Anthropic Claude", "RAG", "Python"],
+    kpi: "80% reducción en tiempo de evaluación",
+    gradient: "from-teal/30 to-violet/30",
+  },
+  {
+    client: "Retail · Omnicanal",
+    title: "Headless commerce para cadena con 120 tiendas",
+    tags: ["Shopify Hydrogen", "Algolia", "Contentful"],
+    kpi: "+62% conversión móvil",
+    gradient: "from-violet/30 to-navy-300/30",
+  },
+];
+
+export default function Work() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Nuestro trabajo"
+        title="Casos que prefieren"
+        highlight="hablar por nosotros"
+        subtitle="Una selección de proyectos representativos. Algunos bajo NDA — te contamos los detalles en una llamada."
+      />
+
+      <section className="mx-auto max-w-7xl px-6 pb-28">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {cases.map((c, i) => (
+            <motion.a
+              key={c.title}
+              href="#contacto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              whileHover={{ y: -6 }}
+              className={`group relative overflow-hidden rounded-3xl border border-navy-100 bg-white p-7 transition-shadow hover:shadow-2xl hover:shadow-violet/10 dark:border-navy-800 dark:bg-navy-900/40`}
+            >
+              <div className={`absolute inset-0 -z-10 bg-gradient-to-br ${c.gradient} opacity-40`} />
+              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-navy-100 to-navy-200 dark:from-navy-800 dark:to-navy-900" />
+              <div className="mt-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-violet">{c.client}</p>
+                <h3 className="font-poppins mt-2 text-xl font-bold leading-snug text-navy-900 dark:text-white">
+                  {c.title}
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {c.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-navy-100 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-navy-500 dark:border-navy-700 dark:text-navy-200"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6 flex items-center justify-between">
+                  <p className="font-poppins text-sm font-semibold text-navy-900 dark:text-white">
+                    {c.kpi}
+                  </p>
+                  <ArrowUpRight size={20} strokeWidth={2} className="shrink-0 text-navy-400 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-violet" />
+                </div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}

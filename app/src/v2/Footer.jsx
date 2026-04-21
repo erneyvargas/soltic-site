@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 const SocialIcon = {
@@ -10,28 +11,28 @@ const cols = [
   {
     title: "Servicios",
     links: [
-      ["Full Product Development", "#servicios"],
-      ["Product Discovery", "#servicios"],
-      ["Staff Augmentation", "#servicios"],
-      ["Consultoría digital", "#servicios"],
+      ["Full Product Development", "/servicios"],
+      ["Product Discovery",        "/servicios"],
+      ["Staff Augmentation",       "/servicios"],
+      ["Consultoría digital",      "/servicios"],
     ],
   },
   {
     title: "Empresa",
     links: [
-      ["Proceso", "#proceso"],
-      ["Industrias", "#industrias"],
-      ["Preguntas", "#preguntas"],
-      ["Contacto", "#contacto"],
+      ["Nosotros",  "/nosotros"],
+      ["Trabajo",   "/trabajo"],
+      ["Blog",      "/blog"],
+      ["Contacto",  "/contacto"],
     ],
   },
   {
     title: "Recursos",
     links: [
-      ["Blog", "#"],
-      ["Casos de estudio", "#"],
-      ["Guías técnicas", "#"],
-      ["Newsletter", "#"],
+      ["Blog",              "/blog"],
+      ["Casos de estudio",  "/trabajo"],
+      ["Guías técnicas",    "/blog"],
+      ["Newsletter",        "/contacto"],
     ],
   },
 ];
@@ -73,9 +74,9 @@ export default function Footer() {
               <ul className="mt-5 space-y-3 text-sm">
                 {c.links.map(([l, h]) => (
                   <li key={l}>
-                    <a href={h} className="text-navy-200 hover:text-white">
+                    <Link to={h} className="text-navy-200 hover:text-white">
                       {l}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

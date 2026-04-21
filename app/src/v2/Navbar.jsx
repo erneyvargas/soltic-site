@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#proceso", label: "Proceso" },
-  { href: "#industrias", label: "Industrias" },
-  { href: "#preguntas", label: "FAQ" },
+  { to: "/servicios", label: "Servicios" },
+  { to: "/trabajo",   label: "Trabajo" },
+  { to: "/nosotros",  label: "Nosotros" },
+  { to: "/blog",      label: "Blog" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 10);
@@ -38,24 +42,30 @@ export default function Navbar() {
 
           <nav className="hidden items-center gap-1 md:flex">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="rounded-lg px-4 py-1.5 text-sm font-medium text-navy-700 transition hover:bg-navy-50 hover:text-violet dark:text-navy-100 dark:hover:bg-navy-900 dark:hover:text-teal"
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={({ isActive }) =>
+                  `rounded-lg px-4 py-1.5 text-sm font-medium transition ${
+                    isActive
+                      ? "bg-navy-50 text-violet dark:bg-navy-900 dark:text-teal"
+                      : "text-navy-700 hover:bg-navy-50 hover:text-violet dark:text-navy-100 dark:hover:bg-navy-900 dark:hover:text-teal"
+                  }`
+                }
               >
                 {l.label}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
           <div className="flex items-center gap-1.5">
             <ThemeToggle className="!size-9 !rounded-xl" />
-            <a
-              href="#contacto"
+            <Link
+              to="/contacto"
               className="hidden md:inline-flex items-center rounded-xl bg-navy-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet dark:bg-white dark:text-navy-900 dark:hover:bg-teal dark:hover:text-navy-900"
             >
               Hablemos
-            </a>
+            </Link>
             <button
               onClick={() => setOpen((v) => !v)}
               className="md:hidden grid size-9 place-items-center rounded-xl border border-navy-100 bg-white text-navy-900 dark:border-navy-700 dark:bg-navy-900 dark:text-white"
@@ -76,22 +86,28 @@ export default function Navbar() {
               className="mt-2 overflow-hidden rounded-2xl border border-navy-100 bg-white/95 p-3 shadow-xl backdrop-blur-xl md:hidden dark:border-navy-800 dark:bg-navy-950/95"
             >
               {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
+                <NavLink
+                  key={l.to}
+                  to={l.to}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-sm font-medium text-navy-700 hover:bg-navy-50 dark:text-navy-100 dark:hover:bg-navy-900"
+                  className={({ isActive }) =>
+                    `block rounded-xl px-4 py-3 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-navy-50 text-violet dark:bg-navy-900 dark:text-teal"
+                        : "text-navy-700 hover:bg-navy-50 dark:text-navy-100 dark:hover:bg-navy-900"
+                    }`
+                  }
                 >
                   {l.label}
-                </a>
+                </NavLink>
               ))}
-              <a
-                href="#contacto"
+              <Link
+                to="/contacto"
                 onClick={() => setOpen(false)}
                 className="mt-2 flex justify-center rounded-xl bg-navy-900 px-5 py-3 text-sm font-semibold text-white dark:bg-white dark:text-navy-900"
               >
                 Hablemos
-              </a>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>
