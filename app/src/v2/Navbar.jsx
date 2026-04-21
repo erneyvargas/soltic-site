@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <header className={`fixed inset-x-0 z-50 transition-all duration-300 ${scrolled ? "top-3" : "top-5"}`}>
-      <div className="mx-auto w-full max-w-6xl px-4">
+      <div className="mx-auto w-full max-w-7xl px-6">
         <nav
           className={`flex items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-300 ${
             scrolled
