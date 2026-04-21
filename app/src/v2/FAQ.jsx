@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -28,20 +29,28 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
   return (
     <section id="preguntas" className="mx-auto max-w-4xl px-6 py-28 sm:py-36">
-      <div className="text-center">
-        <span className="font-mono text-xs uppercase tracking-[0.24em] text-violet">
-          — Preguntas frecuentes
-        </span>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center"
+      >
+        <span className="font-mono text-xs uppercase tracking-[0.24em] text-violet">— Preguntas frecuentes</span>
         <h2 className="font-poppins mt-5 text-4xl font-bold text-navy-900 dark:text-white sm:text-5xl">
           Todo lo que normalmente nos preguntan
         </h2>
-      </div>
+      </motion.div>
 
       <div className="mt-14 space-y-3">
         {faqs.map((f, i) => (
-          <div
+          <motion.div
             key={f.q}
-            className="overflow-hidden rounded-2xl border border-navy-100 bg-white dark:border-navy-800 dark:bg-navy-900/40"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.4, delay: i * 0.06 }}
+            className="overflow-hidden rounded-2xl border border-navy-100 bg-white transition-colors dark:border-navy-800 dark:bg-navy-900/40"
           >
             <button
               onClick={() => setOpen(open === i ? -1 : i)}
@@ -50,22 +59,30 @@ export default function FAQ() {
               <span className="font-poppins text-lg font-semibold text-navy-900 dark:text-white">
                 {f.q}
               </span>
-              {open === i ? (
-                <Minus size={20} className="shrink-0 text-violet" />
-              ) : (
-                <Plus size={20} className="shrink-0 text-navy-500 dark:text-navy-200" />
-              )}
+              <motion.span
+                animate={{ rotate: open === i ? 45 : 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="grid size-8 shrink-0 place-items-center rounded-full bg-navy-50 text-navy-700 dark:bg-navy-800 dark:text-white"
+              >
+                <Plus size={16} />
+              </motion.span>
             </button>
-            <div
-              className={`grid overflow-hidden transition-all duration-300 ${
-                open === i ? "grid-rows-[1fr] pb-6" : "grid-rows-[0fr]"
-              }`}
-            >
-              <p className="min-h-0 px-6 leading-relaxed text-navy-700 dark:text-navy-100">
-                {f.a}
-              </p>
-            </div>
-          </div>
+            <AnimatePresence initial={false}>
+              {open === i && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  <p className="px-6 pb-6 leading-relaxed text-navy-700 dark:text-navy-100">
+                    {f.a}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
     </section>
