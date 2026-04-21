@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 export default function NotFound() {
   return (
     <section className="relative isolate flex min-h-[80vh] items-center overflow-hidden">
+      <SEO title="404" description="Página no encontrada" path="/404" />
       <div className="absolute inset-0 -z-10 bg-brand-radial" />
       <div className="mx-auto max-w-3xl px-6 py-20 text-center">
         <p className="font-mono text-xs uppercase tracking-[0.24em] text-violet">Error 404</p>

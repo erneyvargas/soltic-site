@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import SEO from "../components/SEO";
 import PageHero from "./_PageHero";
 
 const posts = [
@@ -45,6 +46,11 @@ const posts = [
 export default function Blog() {
   return (
     <>
+      <SEO
+        title="Blog"
+        description="Notas técnicas de nuestro equipo. Lecciones de cloud, arquitectura, IA y backend escritas por los ingenieros que hacen el trabajo."
+        path="/blog"
+      />
       <PageHero
         eyebrow="Blog"
         title="Notas técnicas de"

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 import PageHero from "./_PageHero";
 
 const values = [
@@ -20,6 +21,11 @@ const team = [
 export default function About() {
   return (
     <>
+      <SEO
+        title="Nosotros"
+        description="Un estudio de ingeniería hecho por ingenieros. 40 personas entre Bogotá, Medellín y CDMX. +120 proyectos entregados desde 2020."
+        path="/nosotros"
+      />
       <PageHero
         eyebrow="Nosotros"
         title="Un estudio hecho por ingenieros"

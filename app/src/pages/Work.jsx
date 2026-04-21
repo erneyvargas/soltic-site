@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import SEO from "../components/SEO";
 import PageHero from "./_PageHero";
 
 const cases = [
@@ -50,6 +51,11 @@ const cases = [
 export default function Work() {
   return (
     <>
+      <SEO
+        title="Nuestro trabajo"
+        description="Casos seleccionados en fintech, healthtech, OTT, retail y educación. Resultados medibles: uptimes 99.99%, reducciones de costos, cierres de ronda."
+        path="/trabajo"
+      />
       <PageHero
         eyebrow="Nuestro trabajo"
         title="Casos que prefieren"

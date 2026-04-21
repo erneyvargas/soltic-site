@@ -1,3 +1,4 @@
+import SEO, { organizationSchema } from "../components/SEO";
 import Hero from "../v2/Hero";
 import Clients from "../v2/Clients";
 import Services from "../v2/Services";
@@ -11,6 +12,12 @@ import Contact from "../v2/Contact";
 export default function Home() {
   return (
     <>
+      <SEO
+        title="Agencia de producto digital"
+        description="Diseñamos, construimos y escalamos productos digitales para startups y empresas que quieren moverse rápido sin romper el criterio. Bogotá · Colombia."
+        path="/"
+        schema={organizationSchema}
+      />
       <Hero />
       <Clients />
       <Services />

@@ -1,10 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import SEO from "../components/SEO";
 
 export default function BlogPost() {
   const { slug } = useParams();
   return (
     <article className="mx-auto max-w-3xl px-6 pt-36 pb-28">
+      <SEO
+        title={`Blog · ${slug}`}
+        description="Artículo técnico del blog de Soltic S.A.S."
+        path={`/blog/${slug}`}
+      />
       <Link
         to="/blog"
         className="inline-flex items-center gap-1.5 text-sm text-navy-500 hover:text-violet dark:text-navy-200"

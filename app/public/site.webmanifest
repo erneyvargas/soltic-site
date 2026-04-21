@@ -1,0 +1,17 @@
+{
+  "name": "Soltic S.A.S.",
+  "short_name": "Soltic",
+  "description": "Agencia digital que diseña, construye y escala productos tecnológicos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F1B4C",
+  "theme_color": "#0F1B4C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
