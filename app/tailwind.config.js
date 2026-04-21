@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -20,6 +21,10 @@ export default {
       fontFamily: {
         sans: ['"Bricolage Grotesque"', "system-ui", "sans-serif"],
         display: ['"Fraunces"', "serif"],
+        // v2
+        editorial: ['"DM Serif Display"', "serif"],
+        plex: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+        mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
       },
       backgroundImage: {
         "mesh-hero":
