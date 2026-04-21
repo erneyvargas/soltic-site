@@ -6,6 +6,7 @@
 !*.tfvars.example
 crash.log
 .terraform.lock.hcl
+infra/dist/
 
 # Node / Vite
 app/node_modules/
