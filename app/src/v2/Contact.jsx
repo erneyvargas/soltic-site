@@ -46,7 +46,7 @@ export default function Contact() {
 
           <dl className="mt-12 space-y-5">
             {[
-              { I: Mail, k: "Correo", v: "hola@soltic.com.co", href: "mailto:hola@soltic.com.co" },
+              { I: Mail, k: "Correo", v: "erneyvargasdev@gmail.com", href: "mailto:erneyvargasdev@gmail.com" },
               { I: Phone, k: "Teléfono", v: "+57 300 678 2549", href: "tel:+573006782549" },
               { I: MapPin, k: "Oficina", v: "Bogotá · Colombia" },
             ].map(({ I, k, v, href }) => (
@@ -130,7 +130,7 @@ export default function Contact() {
                 exit={{ opacity: 0 }}
                 className="mt-4 flex items-center gap-2 rounded-xl bg-red-50 p-3 text-sm text-red-800"
               >
-                <AlertTriangle size={16} /> No pudimos enviar tu mensaje. Escríbenos a hola@soltic.com.co
+                <AlertTriangle size={16} /> No pudimos enviar tu mensaje. Escríbenos a erneyvargasdev@gmail.com
               </motion.p>
             )}
           </AnimatePresence>

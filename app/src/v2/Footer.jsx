@@ -88,8 +88,8 @@ export default function Footer() {
               Contacto
             </h4>
             <address className="mt-5 space-y-3 text-sm not-italic text-navy-200">
-              <a href="mailto:hola@soltic.com.co" className="block hover:text-white">
-                hola@soltic.com.co
+              <a href="mailto:erneyvargasdev@gmail.com" className="block hover:text-white">
+                erneyvargasdev@gmail.com
               </a>
               <a href="tel:+573006782549" className="block hover:text-white">
                 +57 300 678 2549
