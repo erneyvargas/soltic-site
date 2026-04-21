@@ -28,8 +28,8 @@ export default function Navbar() {
         <nav
           className={`flex items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-300 ${
             scrolled
-              ? "border-navy-100 bg-white/85 shadow-[0_10px_30px_-10px_rgba(15,27,76,0.15)] backdrop-blur-xl dark:border-navy-800 dark:bg-navy-950/80"
-              : "border-navy-100/60 bg-white/70 shadow-[0_4px_20px_-8px_rgba(15,27,76,0.08)] backdrop-blur-md dark:border-navy-800/60 dark:bg-navy-950/50"
+              ? "border-navy-100/50 bg-white/55 shadow-[0_10px_30px_-10px_rgba(15,27,76,0.10)] backdrop-blur-xl dark:border-navy-800/50 dark:bg-navy-950/45"
+              : "border-navy-100/30 bg-white/25 shadow-[0_4px_20px_-10px_rgba(15,27,76,0.06)] backdrop-blur-md dark:border-navy-800/30 dark:bg-navy-950/20"
           }`}
         >
           <div className="pl-2">
