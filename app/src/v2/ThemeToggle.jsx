@@ -7,7 +7,7 @@ export default function ThemeToggle({ className = "" }) {
     <button
       onClick={toggle}
       aria-label={theme === "dark" ? "Modo claro" : "Modo oscuro"}
-      className={`grid size-10 place-items-center rounded-full border border-zinc-200 bg-white text-zinc-700 transition hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-white ${className}`}
+      className={`grid size-10 place-items-center rounded-full border border-navy-100 bg-white text-navy-700 transition hover:border-violet hover:text-violet dark:border-navy-700 dark:bg-navy-900 dark:text-navy-100 dark:hover:border-teal dark:hover:text-teal ${className}`}
     >
       {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
     </button>
