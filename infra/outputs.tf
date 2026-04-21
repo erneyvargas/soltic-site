@@ -28,6 +28,11 @@ output "github_deploy_role_arn" {
   description = "ARN del role que GitHub Actions asume vía OIDC"
 }
 
+output "contact_api_url" {
+  value       = "${aws_apigatewayv2_api.contact.api_endpoint}/contact"
+  description = "Endpoint POST para el form de contacto"
+}
+
 output "github_workflow_env" {
   value = <<EOT
 AWS_ROLE_ARN:    ${aws_iam_role.github_deploy.arn}

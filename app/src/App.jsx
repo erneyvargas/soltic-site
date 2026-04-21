@@ -6,11 +6,14 @@ import Footer from "./v2/Footer";
 import ScrollToTop from "./ScrollToTop";
 import ScrollProgress from "./components/ScrollProgress";
 import PageTransition from "./components/PageTransition";
+import Analytics from "./components/Analytics";
+import FloatingCTA from "./components/FloatingCTA";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const ServicesPage = lazy(() => import("./pages/Services"));
 const Work = lazy(() => import("./pages/Work"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
@@ -30,14 +33,15 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Suspense key={location.pathname} fallback={<RouteFallback />}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/"              element={<PageTransition><Home /></PageTransition>} />
-          <Route path="/nosotros"      element={<PageTransition><About /></PageTransition>} />
-          <Route path="/servicios"     element={<PageTransition><ServicesPage /></PageTransition>} />
-          <Route path="/trabajo"       element={<PageTransition><Work /></PageTransition>} />
-          <Route path="/blog"          element={<PageTransition><Blog /></PageTransition>} />
-          <Route path="/blog/:slug"    element={<PageTransition><BlogPost /></PageTransition>} />
-          <Route path="/contacto"      element={<PageTransition><ContactPage /></PageTransition>} />
-          <Route path="*"              element={<PageTransition><NotFound /></PageTransition>} />
+          <Route path="/"                 element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/nosotros"         element={<PageTransition><About /></PageTransition>} />
+          <Route path="/servicios"        element={<PageTransition><ServicesPage /></PageTransition>} />
+          <Route path="/trabajo"          element={<PageTransition><Work /></PageTransition>} />
+          <Route path="/trabajo/:slug"    element={<PageTransition><CaseStudy /></PageTransition>} />
+          <Route path="/blog"             element={<PageTransition><Blog /></PageTransition>} />
+          <Route path="/blog/:slug"       element={<PageTransition><BlogPost /></PageTransition>} />
+          <Route path="/contacto"         element={<PageTransition><ContactPage /></PageTransition>} />
+          <Route path="*"                 element={<PageTransition><NotFound /></PageTransition>} />
         </Routes>
       </Suspense>
     </AnimatePresence>
@@ -49,6 +53,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <ScrollProgress />
+      <Analytics />
       <div className="font-poppins bg-white text-navy-900 dark:bg-navy-950 dark:text-white">
         <Navbar />
         <main>
@@ -56,6 +61,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <FloatingCTA />
     </BrowserRouter>
   );
 }

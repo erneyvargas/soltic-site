@@ -21,6 +21,7 @@ env:
   AWS_ROLE_ARN: arn:aws:iam::277352717286:role/personal-site-github-deploy
   S3_BUCKET: erney-personal-site-2026
   CLOUDFRONT_ID: ES8FNO8HMQSCC
+  VITE_CONTACT_API: https://60zma2hfzd.execute-api.us-east-1.amazonaws.com/contact
 
 jobs:
   deploy:
@@ -44,6 +45,8 @@ jobs:
 
       - name: Build
         working-directory: app
+        env:
+          VITE_CONTACT_API: ${{ env.VITE_CONTACT_API }}
         run: npm run build
 
       - name: Configure AWS credentials (OIDC)

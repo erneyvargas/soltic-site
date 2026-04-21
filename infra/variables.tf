@@ -39,3 +39,8 @@ variable "github_branch" {
   default     = "main"
   description = "Branch autorizada a desplegar"
 }
+
+variable "notify_email" {
+  type        = string
+  description = "Email destinatario de los submits del form de contacto (requiere verificación en SES)"
+}
