@@ -11,6 +11,7 @@ const posts = [
     tag: "Cloud",
     title: "Cómo redujimos un bill de AWS 42% en dos meses (sin romper nada)",
     desc: "Guía práctica paso a paso para auditar, optimizar y automatizar gasto cloud en cargas productivas.",
+    cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&auto=format&fit=crop&q=80",
   },
   {
     slug: "arquitectura-core-bancario",
@@ -19,6 +20,7 @@ const posts = [
     tag: "Arquitectura",
     title: "Diseñando un core bancario event-driven desde cero",
     desc: "Decisiones de arquitectura, trade-offs y aprendizajes de migrar 3M+ transacciones diarias.",
+    cover: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&auto=format&fit=crop&q=80",
   },
   {
     slug: "llm-procesos-internos",
@@ -27,6 +29,7 @@ const posts = [
     tag: "IA",
     title: "5 procesos internos donde un LLM paga su operación en un mes",
     desc: "No es hype: casos reales de automatización con Claude y GPT-4 con ROI medido.",
+    cover: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&auto=format&fit=crop&q=80",
   },
   {
     slug: "diseno-api-rest",
@@ -35,6 +38,7 @@ const posts = [
     tag: "Backend",
     title: "APIs REST que envejecen bien: 12 reglas no negociables",
     desc: "Lecciones de 10 años diseñando APIs públicas que siguen vivas.",
+    cover: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -48,8 +52,8 @@ export default function Blog() {
         subtitle="Lecciones aprendidas, patrones que funcionan, experimentos que no. Sin marketing hablando."
       />
 
-      <section className="mx-auto max-w-5xl px-6 pb-28">
-        <div className="divide-y divide-navy-100 dark:divide-navy-800">
+      <section className="mx-auto max-w-6xl px-6 pb-28">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {posts.map((p, i) => (
             <motion.article
               key={p.slug}
@@ -57,27 +61,33 @@ export default function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
+              whileHover={{ y: -4 }}
               className="group"
             >
-              <Link
-                to={`/blog/${p.slug}`}
-                className="grid items-baseline gap-6 py-10 md:grid-cols-12"
-              >
-                <div className="md:col-span-3">
-                  <p className="font-mono text-xs text-navy-500 dark:text-navy-200">{p.date}</p>
-                  <span className="mt-2 inline-block rounded-full border border-navy-100 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-violet dark:border-navy-700">
+              <Link to={`/blog/${p.slug}`} className="block">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-3xl">
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent" />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-violet backdrop-blur">
                     {p.tag}
                   </span>
                 </div>
-                <div className="md:col-span-8">
-                  <h2 className="font-poppins text-2xl font-bold leading-snug text-navy-900 transition group-hover:text-violet dark:text-white dark:group-hover:text-teal sm:text-3xl">
+                <div className="mt-5">
+                  <p className="font-mono text-xs text-navy-500 dark:text-navy-200">
+                    {p.date} · {p.read}
+                  </p>
+                  <h2 className="font-poppins mt-2 text-2xl font-bold leading-snug text-navy-900 transition group-hover:text-violet dark:text-white dark:group-hover:text-teal">
                     {p.title}
                   </h2>
-                  <p className="mt-3 max-w-2xl text-navy-700 dark:text-navy-100">{p.desc}</p>
-                  <p className="mt-3 font-mono text-xs text-navy-500 dark:text-navy-200">{p.read}</p>
-                </div>
-                <div className="flex justify-end md:col-span-1">
-                  <ArrowUpRight size={22} strokeWidth={1.5} className="text-navy-400 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-violet" />
+                  <p className="mt-3 text-navy-700 dark:text-navy-100">{p.desc}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 transition group-hover:text-violet dark:text-white dark:group-hover:text-teal">
+                    Leer artículo <ArrowUpRight size={14} strokeWidth={2.5} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
                 </div>
               </Link>
             </motion.article>

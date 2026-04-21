@@ -8,18 +8,21 @@ const testimonials = [
     name: "Ana Restrepo",
     role: "VP Technology",
     company: "Fintech cliente",
+    avatar: "https://i.pravatar.cc/150?img=5",
   },
   {
     q: "Redujeron nuestro bill de AWS 42% en dos meses y el equipo aprendió el proceso en paralelo. Muy pocos consultores hacen eso.",
     name: "Carlos Medina",
     role: "CTO",
     company: "SaaS B2B",
+    avatar: "https://i.pravatar.cc/150?img=13",
   },
   {
     q: "El MVP salió en 10 semanas, pasó los tests de carga al primer intento y nos permitió cerrar la siguiente ronda con tracción real.",
     name: "María Gómez",
     role: "Founder & CEO",
     company: "Marketplace",
+    avatar: "https://i.pravatar.cc/150?img=9",
   },
 ];
 
@@ -77,9 +80,17 @@ export default function Testimonials() {
               <blockquote className="font-poppins text-2xl font-medium leading-relaxed text-white sm:text-3xl md:text-4xl">
                 "{t.q}"
               </blockquote>
-              <div className="mt-10">
-                <p className="font-poppins text-lg font-semibold text-white">{t.name}</p>
-                <p className="mt-1 text-sm text-white/80">{t.role} · {t.company}</p>
+              <div className="mt-10 flex items-center justify-center gap-4">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  loading="lazy"
+                  className="size-14 rounded-full border-2 border-white/30 object-cover"
+                />
+                <div className="text-left">
+                  <p className="font-poppins text-lg font-semibold text-white">{t.name}</p>
+                  <p className="mt-0.5 text-sm text-white/80">{t.role} · {t.company}</p>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>

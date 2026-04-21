@@ -9,12 +9,12 @@ const values = [
 ];
 
 const team = [
-  { n: "Fundador 1", r: "CEO · Co-founder" },
-  { n: "Fundador 2", r: "CTO · Co-founder" },
-  { n: "Miembro 3",  r: "Head of Design" },
-  { n: "Miembro 4",  r: "Head of Engineering" },
-  { n: "Miembro 5",  r: "Data Lead" },
-  { n: "Miembro 6",  r: "Cloud Architect" },
+  { n: "Laura Jiménez",  r: "CEO · Co-founder",       img: "https://i.pravatar.cc/300?img=47" },
+  { n: "Andrés Torres",  r: "CTO · Co-founder",       img: "https://i.pravatar.cc/300?img=12" },
+  { n: "Valentina Ríos", r: "Head of Design",         img: "https://i.pravatar.cc/300?img=45" },
+  { n: "Diego Méndez",   r: "Head of Engineering",    img: "https://i.pravatar.cc/300?img=15" },
+  { n: "Camila Ortiz",   r: "Data Lead",              img: "https://i.pravatar.cc/300?img=32" },
+  { n: "Juan Pablo V.",  r: "Cloud Architect",        img: "https://i.pravatar.cc/300?img=33" },
 ];
 
 export default function About() {
@@ -27,35 +27,50 @@ export default function About() {
         subtitle="Soltic S.A.S. nació en 2020 con una idea simple: construir software que resuelve, no software que impresiona."
       />
 
+      {/* Foto del equipo en acción */}
+      <section className="mx-auto -mt-6 max-w-6xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="overflow-hidden rounded-3xl shadow-2xl shadow-navy-900/20"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format&fit=crop&q=80"
+            alt="Equipo Soltic colaborando"
+            className="aspect-[16/7] w-full object-cover"
+          />
+        </motion.div>
+      </section>
+
       {/* Historia */}
       <section className="mx-auto max-w-4xl px-6 py-20">
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-poppins text-3xl font-bold text-navy-900 dark:text-white sm:text-4xl"
-          >
-            Nuestra historia
-          </motion.h2>
-          <div className="mt-6 space-y-5 text-navy-700 dark:text-navy-100">
-            <p>
-              Empezamos como un equipo de 4 ingenieros cansados de ver proyectos
-              millonarios terminar en nada. Veníamos de banca, retail y salud —
-              industrias donde el software crítico no puede fallar.
-            </p>
-            <p>
-              Cinco años después somos 40 personas entre Bogotá, Medellín y
-              Ciudad de México. Hemos entregado <strong>más de 120 proyectos</strong>,
-              desde MVPs de startups Y Combinator hasta modernizaciones de core
-              bancario. El método no ha cambiado: gente senior, procesos simples,
-              cero BS.
-            </p>
-            <p>
-              No queremos ser la agencia más grande. Queremos ser la agencia a
-              la que un CTO llama cuando el proyecto no puede fallar.
-            </p>
-          </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-poppins text-3xl font-bold text-navy-900 dark:text-white sm:text-4xl"
+        >
+          Nuestra historia
+        </motion.h2>
+        <div className="mt-6 space-y-5 text-navy-700 dark:text-navy-100">
+          <p>
+            Empezamos como un equipo de 4 ingenieros cansados de ver proyectos
+            millonarios terminar en nada. Veníamos de banca, retail y salud —
+            industrias donde el software crítico no puede fallar.
+          </p>
+          <p>
+            Cinco años después somos 40 personas entre Bogotá, Medellín y
+            Ciudad de México. Hemos entregado <strong>más de 120 proyectos</strong>,
+            desde MVPs de startups Y Combinator hasta modernizaciones de core
+            bancario. El método no ha cambiado: gente senior, procesos simples,
+            cero BS.
+          </p>
+          <p>
+            No queremos ser la agencia más grande. Queremos ser la agencia a
+            la que un CTO llama cuando el proyecto no puede fallar.
+          </p>
         </div>
       </section>
 
@@ -105,7 +120,15 @@ export default function About() {
               transition={{ delay: i * 0.05 }}
               className="group text-center"
             >
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-violet/20 to-teal/20 transition group-hover:from-violet/40 group-hover:to-teal/40" />
+              <div className="relative aspect-square overflow-hidden rounded-2xl bg-gradient-to-br from-violet/20 to-teal/20">
+                <img
+                  src={p.img}
+                  alt={p.n}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:saturate-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+              </div>
               <p className="font-poppins mt-4 font-semibold text-navy-900 dark:text-white">{p.n}</p>
               <p className="mt-1 text-xs text-navy-500 dark:text-navy-200">{p.r}</p>
             </motion.div>
