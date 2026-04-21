@@ -19,6 +19,11 @@ variable "price_class" {
   description = "PriceClass_100 = NA+EU (más barato); PriceClass_200 = +Asia; PriceClass_All = global"
 }
 
+variable "assets_bucket_name" {
+  type        = string
+  description = "Bucket S3 para imágenes y assets estáticos (único global)"
+}
+
 variable "github_owner" {
   type        = string
   description = "GitHub user u org dueño del repo (ej: erneyvargas)"

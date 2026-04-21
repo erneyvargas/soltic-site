@@ -19,6 +19,12 @@ resource "aws_cloudfront_distribution" "site" {
     origin_access_control_id = aws_cloudfront_origin_access_control.site.id
   }
 
+  origin {
+    domain_name              = aws_s3_bucket.assets.bucket_regional_domain_name
+    origin_id                = "s3-assets"
+    origin_access_control_id = aws_cloudfront_origin_access_control.assets.id
+  }
+
   default_cache_behavior {
     target_origin_id       = "s3-${var.bucket_name}"
     viewer_protocol_policy = "redirect-to-https"
@@ -27,6 +33,18 @@ resource "aws_cloudfront_distribution" "site" {
     compress               = true
 
     cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6" # CachingOptimized (AWS-managed)
+  }
+
+  # /images/* → bucket de assets
+  ordered_cache_behavior {
+    path_pattern           = "/images/*"
+    target_origin_id       = "s3-assets"
+    viewer_protocol_policy = "redirect-to-https"
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    compress               = true
+
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
   }
 
   # SPA routing: 403/404 → index.html para que React Router maneje rutas client-side

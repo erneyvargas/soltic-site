@@ -11,7 +11,7 @@ const posts = [
     tag: "Cloud",
     title: "Cómo redujimos un bill de AWS 42% en dos meses (sin romper nada)",
     desc: "Guía práctica paso a paso para auditar, optimizar y automatizar gasto cloud en cargas productivas.",
-    cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&auto=format&fit=crop&q=80",
+    cover: "/images/blog-aws-costs.jpg",
   },
   {
     slug: "arquitectura-core-bancario",
@@ -20,7 +20,7 @@ const posts = [
     tag: "Arquitectura",
     title: "Diseñando un core bancario event-driven desde cero",
     desc: "Decisiones de arquitectura, trade-offs y aprendizajes de migrar 3M+ transacciones diarias.",
-    cover: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&auto=format&fit=crop&q=80",
+    cover: "/images/blog-arquitectura.jpg",
   },
   {
     slug: "llm-procesos-internos",
@@ -29,7 +29,7 @@ const posts = [
     tag: "IA",
     title: "5 procesos internos donde un LLM paga su operación en un mes",
     desc: "No es hype: casos reales de automatización con Claude y GPT-4 con ROI medido.",
-    cover: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&auto=format&fit=crop&q=80",
+    cover: "/images/blog-llm.jpg",
   },
   {
     slug: "diseno-api-rest",
@@ -38,7 +38,7 @@ const posts = [
     tag: "Backend",
     title: "APIs REST que envejecen bien: 12 reglas no negociables",
     desc: "Lecciones de 10 años diseñando APIs públicas que siguen vivas.",
-    cover: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&auto=format&fit=crop&q=80",
+    cover: "/images/blog-api.jpg",
   },
 ];
 

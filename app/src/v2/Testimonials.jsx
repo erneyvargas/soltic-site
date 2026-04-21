@@ -8,21 +8,21 @@ const testimonials = [
     name: "Ana Restrepo",
     role: "VP Technology",
     company: "Fintech cliente",
-    avatar: "https://i.pravatar.cc/150?img=5",
+    avatar: "/images/testimonial-01.jpg",
   },
   {
     q: "Redujeron nuestro bill de AWS 42% en dos meses y el equipo aprendió el proceso en paralelo. Muy pocos consultores hacen eso.",
     name: "Carlos Medina",
     role: "CTO",
     company: "SaaS B2B",
-    avatar: "https://i.pravatar.cc/150?img=13",
+    avatar: "/images/testimonial-02.jpg",
   },
   {
     q: "El MVP salió en 10 semanas, pasó los tests de carga al primer intento y nos permitió cerrar la siguiente ronda con tracción real.",
     name: "María Gómez",
     role: "Founder & CEO",
     company: "Marketplace",
-    avatar: "https://i.pravatar.cc/150?img=9",
+    avatar: "/images/testimonial-03.jpg",
   },
 ];
 

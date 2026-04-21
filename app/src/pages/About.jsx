@@ -9,12 +9,12 @@ const values = [
 ];
 
 const team = [
-  { n: "Laura Jiménez",  r: "CEO · Co-founder",       img: "https://i.pravatar.cc/300?img=47" },
-  { n: "Andrés Torres",  r: "CTO · Co-founder",       img: "https://i.pravatar.cc/300?img=12" },
-  { n: "Valentina Ríos", r: "Head of Design",         img: "https://i.pravatar.cc/300?img=45" },
-  { n: "Diego Méndez",   r: "Head of Engineering",    img: "https://i.pravatar.cc/300?img=15" },
-  { n: "Camila Ortiz",   r: "Data Lead",              img: "https://i.pravatar.cc/300?img=32" },
-  { n: "Juan Pablo V.",  r: "Cloud Architect",        img: "https://i.pravatar.cc/300?img=33" },
+  { n: "Laura Jiménez",  r: "CEO · Co-founder",    img: "/images/team-01.jpg" },
+  { n: "Andrés Torres",  r: "CTO · Co-founder",    img: "/images/team-02.jpg" },
+  { n: "Valentina Ríos", r: "Head of Design",      img: "/images/team-03.jpg" },
+  { n: "Diego Méndez",   r: "Head of Engineering", img: "/images/team-04.jpg" },
+  { n: "Camila Ortiz",   r: "Data Lead",           img: "/images/team-05.jpg" },
+  { n: "Juan Pablo V.",  r: "Cloud Architect",     img: "/images/team-06.jpg" },
 ];
 
 export default function About() {
@@ -37,7 +37,7 @@ export default function About() {
           className="overflow-hidden rounded-3xl shadow-2xl shadow-navy-900/20"
         >
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format&fit=crop&q=80"
+            src="/images/about-hero.jpg"
             alt="Equipo Soltic colaborando"
             className="aspect-[16/7] w-full object-cover"
           />
